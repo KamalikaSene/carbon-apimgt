@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2025, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,21 +16,27 @@
  * under the License.
  */
 
-package org.wso2.carbon.apimgt.governance.api.model;
+package org.wso2.carbon.apimgt.api.model;
 
-/**
- * This enum represents a governance action type
- */
-public enum GovernanceActionType {
-    BLOCK,
-    NOTIFY;
+import java.util.List;
 
-    public static GovernanceActionType fromString(String actionTypeString) {
-        if ("block".equalsIgnoreCase(actionTypeString)) {
-            return GovernanceActionType.BLOCK;
-        } else if ("notify".equalsIgnoreCase(actionTypeString)) {
-            return GovernanceActionType.NOTIFY;
-        }
-        return null;
+public class GatewayAPIValidationResult {
+    boolean isValid;
+    List<String> errors;
+
+    public boolean isValid() {
+        return isValid;
+    }
+
+    public void setValid(boolean valid) {
+        isValid = valid;
+    }
+
+    public List<String> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(List<String> errors) {
+        this.errors = errors;
     }
 }

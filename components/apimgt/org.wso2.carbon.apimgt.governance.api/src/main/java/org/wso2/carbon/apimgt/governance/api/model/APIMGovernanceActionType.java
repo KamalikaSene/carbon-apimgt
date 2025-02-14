@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024, WSO2 LLC. (http://www.wso2.com).
+ * Copyright (c) 2025, WSO2 LLC. (http://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,12 +16,22 @@
  * under the License.
  */
 
-package org.wso2.carbon.apimgt.governance.impl.config;
+package org.wso2.carbon.apimgt.governance.api.model;
+
+import java.util.Locale;
 
 /**
- * This interface represents the Governance Configuration Service
+ * This enum represents a governance action type
  */
-public interface GovernanceConfigurationService {
+public enum APIMGovernanceActionType {
+    BLOCK,
+    NOTIFY;
 
-    GovernanceConfiguration getGovernanceConfiguration();
+    public static APIMGovernanceActionType fromString(String actionTypeString) {
+        try {
+            return APIMGovernanceActionType.valueOf(actionTypeString.toUpperCase(Locale.ENGLISH));
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+    }
 }
